@@ -27,3 +27,21 @@ const registerInstructor = async (req,res)=>{
         res.send({ message: "Internal server error" });
     }
 }
+
+const loginUser = async (req,res)=>{
+    let userObj = req.body;
+    const dbObj = await Instructor.findOne({username:userObj.username})
+    if(dbObj===null){
+        res.send({message:"Invalid Username"})
+    }
+    else{
+        let status = await bcryptjs.compare(userObj.password,dbObj.password)
+        if(status===false){
+            res.send({message:"Invalid password"})
+        }
+        else{
+            let signedToken = jwt.sign({username:userObj.username},process.env.SECRET_KEY,{expiresIn:'1d'})
+            res.send({message:"Login successful",token:signedToken,user:dbObj})
+        }
+    }
+}
