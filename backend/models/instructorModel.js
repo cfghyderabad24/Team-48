@@ -2,6 +2,10 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const instructorSchema = new Schema({
+  userType:{
+    type:String,
+    required:true
+  },
   username: {
     type: String,
     required: true,
@@ -18,7 +22,6 @@ const instructorSchema = new Schema({
   email: {
     type: String,
     required: true,
-    unique: true
   },
   students: {
     type: [String], // Array of student usernames

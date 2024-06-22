@@ -4,6 +4,9 @@ const path = require('path')
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const instructorRoutes = require('./routes/instructorRoutes')
+const adminRoutes = require('./routes/adminRoutes')
+const studentRoutes = require('./routes/studentRoutes')
+const imageApp = require('./routes/imageApp')
 
 require('dotenv').config();
 
@@ -14,6 +17,9 @@ app.use(cors());
 app.use(express.json())
 
 app.use('/instructor-api',instructorRoutes)
+app.use('/admin-api',adminRoutes)
+app.use('/student-api',studentRoutes)
+app.use('/image-api',imageApp)
 
 mongoose.connect(process.env.DB_URL, {
     useNewUrlParser: true,

@@ -7,6 +7,14 @@ const studentSchema = new Schema({
         required:true,
         unique:true
     },
+    instructor_username:{
+      type:String,
+      required:true,
+    },
+    userType:{
+      type:String,
+      required:true
+    },
   studentName: {
     type: String,
     required: true
