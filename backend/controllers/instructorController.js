@@ -1,4 +1,5 @@
 const Instructor = require('../models/instructorModel');
+const Student = require('../models/studentModel')
 const bcryptjs = require('bcryptjs')
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
@@ -28,7 +29,7 @@ const registerInstructor = async (req,res)=>{
     }
 }
 
-const loginUser = async (req,res)=>{
+const loginInstructor = async (req,res)=>{
     let userObj = req.body;
     const dbObj = await Instructor.findOne({username:userObj.username})
     if(dbObj===null){
@@ -45,3 +46,102 @@ const loginUser = async (req,res)=>{
         }
     }
 }
+
+const updateAttendance = async (req, res) => {
+    const { instructorUsername, attendanceUpdates } = req.body; // Assuming you send instructorUsername and attendanceUpdates from the client
+  
+    try {
+      // Find the instructor by username
+      const instructor = await Instructor.findOne({ username: instructorUsername });
+  
+      if (!instructor) {
+        return res.status(404).json({ message: 'Instructor not found' });
+      }
+  
+      // Iterate through each student's attendance update
+      for (const update of attendanceUpdates) {
+        const { studentUsername, attendance } = update;
+  
+        // Find the student by username
+        const student = await Student.findOne({ username: studentUsername });
+  
+        if (student) {
+          // Increment total attendance
+          student.total_attendance += 1;
+  
+          // Update attendance if the value is true
+          if (attendance) {
+            student.attendance += 1;
+          }
+  
+          // Save the updated student document
+          // This will not create a new student but update the existing one
+          await student.save();
+        }
+      }
+  
+      return res.status(200).json({ message: 'Attendance updated successfully' });
+    } catch (error) {
+      return res.status(500).json({ message: 'Server error', error });
+    }
+  };
+
+  const updateAcademicMarks = async (req, res) => {
+    const { studentUsername } = req.params;
+    const { obtained_marks, total_marks } = req.body;
+  
+    try {
+      // Find the student by username
+      const student = await Student.findOne({ username: studentUsername });
+  
+      if (!student) {
+        return res.json({ message: 'Student not found' });
+      }
+  
+      // Update the obtained marks and total marks
+      student.obtained_marks += obtained_marks;
+      student.total_marks += total_marks;
+  
+      // Save the updated student document
+      await student.save();
+  
+      return res.json({ message: 'Academic marks updated successfully', student });
+    } catch (error) {
+      return res.json({ message: 'Server error', error });
+    }
+  };
+
+  const updateTherapyMarks = async (req, res) => {
+    const { studentUsername } = req.params;
+    const { obtained_marks, total_marks } = req.body;
+  
+    try {
+      // Find the student by username
+      const student = await Student.findOne({ username: studentUsername });
+  
+      if (!student) {
+        return res.json({ message: 'Student not found' });
+      }
+  
+      // Update the obtained marks and total marks
+      student.therapy_marks += obtained_marks;
+      student.total_therapy_marks += total_marks;
+  
+      // Save the updated student document
+      await student.save();
+  
+      return res.json({ message: 'Academic marks updated successfully', student });
+    } catch (error) {
+      return res.json({ message: 'Server error', error });
+    }
+  };
+
+
+  module.exports = {
+    registerInstructor,
+    loginInstructor,
+    updateAttendance,
+    updateAcademicMarks,
+    updateTherapyMarks
+  };
+  

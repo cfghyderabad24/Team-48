@@ -1,0 +1,57 @@
+POST http://localhost:4000/instructor-api/new-instructor
+Content-Type: application/json
+
+{
+  "username": "jane_doe",
+  "password": "securepassword123",
+  "instructorName": "Jane Doe",
+  "email": "jane.doe@example.com",
+  "students": ["student1", "student2", "student3"]
+}
+
+###
+POST http://localhost:4000/instructor-api/login
+Content-Type: application/json
+
+{
+  "username": "jane_doe",
+  "password": "securepassword123"
+}
+###
+POST http://localhost:4000/instructor-api/update-academic-marks
+Content-Type: application/json
+
+{
+  "obtained_marks": 85,
+  "total_marks": 100
+}
+
+###
+POST http://localhost:4000/instructor-api/update-therapy-marks
+Content-Type: application/json
+
+{
+  "therapy_marks": 20,
+  "total_therapy_marks": 25
+}
+###
+POST http://localhost:4000/instructor-api/update-attendance
+Content-Type: application/json
+
+{
+  "instructorUsername": "jane_doe",
+  "attendanceUpdates": [
+    {
+      "studentUsername": "student1",
+      "attendance": true
+    },
+    {
+      "studentUsername": "student2",
+      "attendance": false
+    },
+    {
+      "studentUsername": "student3",
+      "attendance": true
+    }
+  ]
+}
