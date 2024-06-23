@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/static/css/main.f413794e.css",
+    "main.js": "/static/js/main.fc7809ee.js",
+    "static/js/453.d855a71b.chunk.js": "/static/js/453.d855a71b.chunk.js",
+    "static/media/event3.jpeg": "/static/media/event3.efa517c3644bc6a74ff3.jpeg",
+    "static/media/distance_learning.jpeg": "/static/media/distance_learning.59b762ff283b4cfd81b2.jpeg",
+    "static/media/event2.jpeg": "/static/media/event2.14d50efd1d66697f6357.jpeg",
+    "static/media/logo.jpeg": "/static/media/logo.cee3af38037a5444f016.jpeg",
+    "static/media/Mission.jpg": "/static/media/Mission.b5d2022c7848c4e19fb5.jpg",
+    "static/media/Nirmaya.jpeg": "/static/media/Nirmaya.6b7dfaa940ad4ff1f864.jpeg",
+    "static/media/vision.jpeg": "/static/media/vision.6f03d3406c0d91baa835.jpeg",
+    "static/media/samarth.jpeg": "/static/media/samarth.56395bbb21d63d7c3912.jpeg",
+    "static/media/Gharaunda.jpeg": "/static/media/Gharaunda.516457e9a88596418fa0.jpeg",
+    "index.html": "/index.html",
+    "main.f413794e.css.map": "/static/css/main.f413794e.css.map",
+    "main.fc7809ee.js.map": "/static/js/main.fc7809ee.js.map",
+    "453.d855a71b.chunk.js.map": "/static/js/453.d855a71b.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f413794e.css",
+    "static/js/main.fc7809ee.js"
+  ]
+}

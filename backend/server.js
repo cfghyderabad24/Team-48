@@ -21,6 +21,12 @@ app.use('/admin-api',adminRoutes)
 app.use('/student-api',studentRoutes)
 app.use('/image-api',imageApp)
 
+app.use(express.static(path.join(__dirname,'../frontend/build')))
+
+app.use((req,res,next)=>{
+  res.sendFile(path.join(__dirname,'../frontend/build/index.html'))
+})
+
 mongoose.connect(process.env.DB_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
