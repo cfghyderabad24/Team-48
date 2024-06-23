@@ -143,11 +143,11 @@ const Parent = () => {
           <canvas id="attendanceChart" width="200" height="200"></canvas>
           </Grid>
           <Grid item xs={12} sm={4}>
-          <h2>Academic Marks</h2>
+          <h2>Academic Score</h2>
           <canvas id="academicMarksChart" width="200" height="200"></canvas>
           </Grid>
           <Grid item xs={12} sm={4}>
-          <h2>Therapy Marks</h2>
+          <h2>Therapy Score</h2>
           <canvas id="therapyMarksChart" width="200" height="200"></canvas>
           </Grid>
         </Grid>
