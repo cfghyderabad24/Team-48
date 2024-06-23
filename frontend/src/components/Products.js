@@ -38,6 +38,8 @@ const products = [
 
 const Products = () => {
   return (
+    <div>
+      <h1>Products made by specially-abled children from skills they learnt</h1>
     <div className="product-grid">
       {products.map((product, index) => (
         <ProductCard
@@ -47,6 +49,7 @@ const Products = () => {
           description={product.description}
         />
       ))}
+    </div>
     </div>
   );
 };
