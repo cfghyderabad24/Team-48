@@ -1,0 +1,124 @@
+POST http://localhost:4000/instructor-api/new-instructor
+Content-Type: application/json
+
+{
+    "userType":"instructor",
+  "username": "jhans",
+  "password": "jhansi@123",
+  "instructorName": "Jhansi K",
+  "email": "jhansi12@example.com",
+  "students": ["student1", "student2", "student3"]
+}
+
+###
+POST http://localhost:4000/instructor-api/login
+Content-Type: application/json
+
+{
+  "username": "jhansi",
+  "password": "jhansi@123"
+}
+###
+POST http://localhost:4000/instructor-api/update-academic-marks
+Content-Type: application/json
+
+{
+  "obtained_marks": 85,
+  "total_marks": 100
+}
+
+###
+POST http://localhost:4000/instructor-api/update-therapy-marks
+Content-Type: application/json
+
+{
+  "therapy_marks": 20,
+  "total_therapy_marks": 25
+}
+###
+POST http://localhost:4000/instructor-api/update-attendance
+Content-Type: application/json
+
+{
+  "instructorUsername": "jane_doe",
+  "attendanceUpdates": [
+    {
+      "studentUsername": "student1",
+      "attendance": true
+    },
+    {
+      "studentUsername": "student2",
+      "attendance": false
+    },
+    {
+      "studentUsername": "student3",
+      "attendance": true
+    }
+  ]
+}
+###
+POST http://localhost:4000/admin-api/new-admin
+Content-Type: application/json
+
+{
+    "userType":"admin",
+  "username": "krishna",
+  "password": "krishna@123",
+  "adminName": "Krishna"
+}
+
+###
+POST http://localhost:4000/admin-api/login
+Content-Type: application/json
+
+{
+    "userType":"admin",
+  "username": "krishna",
+  "password": "krishna@123"
+}
+###
+POST http://localhost:4000/admin-api/upload-data
+Content-Type: application/json
+
+{
+     "studentName": "John Doe",
+  "parentName": "Jane Doe",
+  "disability": "None",
+  "location": "123 Main St",
+  "phone_number": "123-456-7890"
+}
+###
+GET http://localhost:4000/admin-api/get-all-data
+
+###
+POST http://localhost:4000/student-api/new-student
+Content-Type: application/json
+
+{
+  "username": "student2",
+  "instructor_username": "jhansi",
+  "userType": "student",
+  "studentName": "John Doe",
+  "parentName": "Jane Doe",
+  "password": "securepassword123",
+  "obtained_marks": 85,
+  "total_marks": 100,
+  "attendance": 18,
+  "total_attendance": 20,
+  "therapy_marks": 15,
+  "total_therapy_marks": 20
+}
+
+###
+POST http://localhost:4000/student-api/login
+Content-Type: application/json
+
+{
+  "username": "student1",
+  "userType": "student",
+  "password": "securepassword123"
+}
+###
+GET http://localhost:4000/student-api/student/student1
+###
+GET http://localhost:4000/student-api/instructor/student1
