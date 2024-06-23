@@ -14,19 +14,7 @@ import {
 } from "@mui/material";
 import { Link } from "react-router-dom";
 import axios from 'axios'
-
-const studentNames = [
-  "John Doe",
-  "Jane Smith",
-  "Student 3",
-  "Student 4",
-  "Student 5",
-  "Student 6",
-  "Student 7",
-  "Student 8",
-  "Student 9",
-  "Student 10",
-];
+import { useSelector } from "react-redux";
 
 const progressTypes = ["Educational Progress", "Therapy Progress"];
 
@@ -36,6 +24,8 @@ const InstructorProg = () => {
   const [marks, setMarks] = useState("");
   const [totalMarks, setTotalMarks] = useState("");
   const [feedback, setFeedback] = useState("");
+  let { loginUserStatus, currentUser, errorOccurred, errMsg } = useSelector(state => state.instructorParentLoginReducer);
+  let [studentNames,setNames] = useState(currentUser.students)
 
   const handleStudentChange = (event) => {
     setSelectedStudent(event.target.value);
@@ -68,13 +58,15 @@ const InstructorProg = () => {
     });
     if(progressType=='Educational Progress'){
         let data = {obtained_marks:marks,total_marks:totalMarks}
+        
        let res = await axios.post(`http://localhost:4000/instructor-api/update-academic-marks/${selectedStudent}`,data)
        if(res.data.message=='Academic marks updated successfully'){
            alert('data updated')
        }
     }
     else{
-        let data = {therapy_marks:marks,total_therapy_marks:totalMarks}
+        let data = {obtained_marks:marks,total_marks:totalMarks}
+        
        let res = await axios.post(`http://localhost:4000/instructor-api/update-therapy-marks/${selectedStudent}`,data)
        if(res.data.message=='Academic marks updated successfully'){
            alert('data updated')
