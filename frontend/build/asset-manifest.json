@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.f413794e.css",
-    "main.js": "/static/js/main.e8d323e4.js",
+    "main.js": "/static/js/main.fa89596a.js",
     "static/js/453.d855a71b.chunk.js": "/static/js/453.d855a71b.chunk.js",
     "static/media/event3.jpeg": "/static/media/event3.efa517c3644bc6a74ff3.jpeg",
     "static/media/distance_learning.jpeg": "/static/media/distance_learning.59b762ff283b4cfd81b2.jpeg",
@@ -14,11 +14,11 @@
     "static/media/Gharaunda.jpeg": "/static/media/Gharaunda.516457e9a88596418fa0.jpeg",
     "index.html": "/index.html",
     "main.f413794e.css.map": "/static/css/main.f413794e.css.map",
-    "main.e8d323e4.js.map": "/static/js/main.e8d323e4.js.map",
+    "main.fa89596a.js.map": "/static/js/main.fa89596a.js.map",
     "453.d855a71b.chunk.js.map": "/static/js/453.d855a71b.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f413794e.css",
-    "static/js/main.e8d323e4.js"
+    "static/js/main.fa89596a.js"
   ]
 }
